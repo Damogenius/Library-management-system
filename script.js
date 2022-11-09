@@ -1,3 +1,37 @@
+function tableSearch() {
+    let input, filter, table, tr, td,td1,txtValue;
+
+    //Intialising Variables
+    input = document.getElementById("myInput");
+    filter = input.value.toLowerCase();
+    table = document.getElementById("book-table");
+    tr = table.getElementsByTagName("tr");
+
+    for (let i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+        td1 = tr[i].getElementsByTagName("td")[0];
+        if (td1) {
+            txtValue = td1.textContent || td1.innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+}
+}
+
+
+
+
 function getUniqueValuesFromColumn() {
 
     var unique_col_values_dict = {}
