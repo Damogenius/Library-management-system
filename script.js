@@ -1,357 +1,104 @@
+function getUniqueValuesFromColumn() {
+
+    var unique_col_values_dict = {}
+
+    allFilters = document.querySelectorAll(".table-filter")
+    allFilters.forEach((filter_i) => {
+        col_index = filter_i.parentElement.getAttribute("col-index");
+        // alert(col_index)
+        const rows = document.querySelectorAll("#book-table > tbody > tr")
+
+        rows.forEach((row) => {
+            cell_value = row.querySelector("td:nth-child("+col_index+")").innerHTML;
+            // if the col index is already present in the dict
+            if (col_index in unique_col_values_dict) {
+
+                // if the cell value is already present in the array
+                if (unique_col_values_dict[col_index].includes(cell_value)) {
+                    // alert(cell_value + " is already present in the array : " + unique_col_values_dict[col_index])
+
+                } else {
+                    unique_col_values_dict[col_index].push(cell_value)
+                    // alert("Array after adding the cell value : " + unique_col_values_dict[col_index])
+
+                }
+
+            } else {
+                unique_col_values_dict[col_index] = new Array(cell_value)
+            }
+        });
+
+        
+    });
 
 
+    updateSelectOptions(unique_col_values_dict)
+
+};
+
+// Add <option> tags to the desired columns based on the unique values
+
+function updateSelectOptions(unique_col_values_dict) {
+    allFilters = document.querySelectorAll(".table-filter")
+
+    allFilters.forEach((filter_i) => {
+        col_index = filter_i.parentElement.getAttribute('col-index')
+
+        unique_col_values_dict[col_index].forEach((i) => {
+            filter_i.innerHTML = filter_i.innerHTML + `\n<option value="${i}">${i}</option>`
+        });
+
+    });
+};
 
 
+// Create filter_rows() function
+
+// filter_value_dict {2 : Value selected, 4:value, 5: value}
+
+function filter_rows() {
+    allFilters = document.querySelectorAll(".table-filter")
+    var filter_value_dict = {}
+
+    allFilters.forEach((filter_i) => {
+        col_index = filter_i.parentElement.getAttribute('col-index')
+
+        value = filter_i.value
+        if (value != "all") {
+            filter_value_dict[col_index] = value;
+        }
+    });
+
+    var col_cell_value_dict = {};
+
+    const rows = document.querySelectorAll("#book-table tbody tr");
+    rows.forEach((row) => {
+        var display_row = true;
+
+        allFilters.forEach((filter_i) => {
+            col_index = filter_i.parentElement.getAttribute('col-index')
+            col_cell_value_dict[col_index] = row.querySelector("td:nth-child(" + col_index+ ")").innerHTML
+        })
+
+        for (var col_i in filter_value_dict) {
+            filter_value = filter_value_dict[col_i]
+            row_cell_value = col_cell_value_dict[col_i]
+            
+            if (row_cell_value.indexOf(filter_value) == -1 && filter_value != "all") {
+                display_row = false;
+                break;
+            }
 
 
- var tableData =[
-    {
-      "author": "Chinua Achebe",
-      "country": "Nigeria",
-      "language": "English",
-      "title": "Things Fall Apart",
-      "year": 1958
-    },
-    {
-      "author": "Hans Christian Andersen",
-      "country": "Denmark",
-      "language": "Danish",
-      "title": "Fairy tales",
-      "year": 1836
-    },
-    {
-      "author": "Dante Alighieri",
-      "country": "Italy",
-      
-      "language": "Italian",
-      
-      
-      "title": "The Divine Comedy",
-      "year": 1315
-    },
-    
-  
-    {
-      "author": "Jane Austen",
-      "country": "United Kingdom",
-      
-      "language": "English",
-      
-      
-      "title": "Pride and Prejudice",
-      "year": 1813
-    },
-    {
-      "author": "Honor\u00e9 de Balzac",
-      "country": "France",
-      
-      "language": "French",
-      
-      
-      "title": "Le P\u00e8re Goriot",
-      "year": 1835
-    },
-    {
-      "author": "Samuel Beckett",
-      "country": "Republic of Ireland",
-      
-      "language": "French, English",
-      
-      
-      "title": "Molloy, Malone Dies, The Unnamable, the trilogy",
-      "year": 1952
-    },
-    {
-      "author": "Giovanni Boccaccio",
-      "country": "Italy",
-      
-      "language": "Italian",
-      
-      
-      "title": "The Decameron",
-      "year": 1351
-    },
-    {
-      "author": "Jorge Luis Borges",
-      "country": "Argentina",
-      
-      "language": "Spanish",
-      
-      
-      "title": "Ficciones",
-      "year": 1965
-    },
-    {
-      "author": "Emily Bront\u00eb",
-      "country": "United Kingdom",
-      
-      "language": "English",
-      
-      
-      "title": "Wuthering Heights",
-      "year": 1847
-    },
-    {
-      "author": "Albert Camus",
-      "country": "Algeria, French Empire",
-      
-      "language": "French",
-      
-      
-      "title": "The Stranger",
-      "year": 1942
-    },
-    {
-      "author": "Paul Celan",
-      "country": "Romania, France",
-      
-      "language": "German",
-      
-      
-      "title": "Poems",
-      "year": 1952
-    },
-    {
-      "author": "Louis-Ferdinand C\u00e9line",
-      "country": "France",
-      
-      "language": "French",
-      
-      
-      "title": "Journey to the End of the Night",
-      "year": 1932
-    },
-    {
-      "author": "Miguel de Cervantes",
-      "country": "Spain",
-      
-      "language": "Spanish",
-      
-      
-      "title": "Don Quijote De La Mancha",
-      "year": 1610
-    },
-    {
-      "author": "Geoffrey Chaucer",
-      "country": "England",
-      
-      "language": "English",
-      
-      
-      "title": "The Canterbury Tales",
-      "year": 1450
-    },
-    {
-      "author": "Anton Chekhov",
-      "country": "Russia",
-      
-      "language": "Russian",
-      
-      
-      "title": "Stories",
-      "year": 1886
-    },
-    {
-      "author": "Joseph Conrad",
-      "country": "United Kingdom",
-      
-      "language": "English",
-      
-      
-      "title": "Nostromo",
-      "year": 1904
-    },
-    {
-      "author": "Charles Dickens",
-      "country": "United Kingdom",
-      
-      "language": "English",
-      
-      
-      "title": "Great Expectations",
-      "year": 1861
-    },
-    {
-      "author": "Denis Diderot",
-      "country": "France",
-      
-      "language": "French",
-      
-      
-      "title": "Jacques the Fatalist",
-      "year": 1796
-    },
-    {
-      "author": "Alfred D\u00f6blin",
-      "country": "Germany",
-      
-      "language": "German",
-      
-      
-      "title": "Berlin Alexanderplatz",
-      "year": 1929
-    },
-    {
-      "author": "Fyodor Dostoevsky",
-      "country": "Russia",
-      
-      "language": "Russian",
-      
-      
-      "title": "Crime and Punishment",
-      "year": 1866
-    },
-    {
-      "author": "Fyodor Dostoevsky",
-      "country": "Russia",
-      
-      "language": "Russian",
-      
-      
-      "title": "The Idiot",
-      "year": 1869
-    },
-    {
-      "author": "Fyodor Dostoevsky",
-      "country": "Russia",
-      
-      "language": "Russian",
-      
-      
-      "title": "The Possessed",
-      "year": 1872
-    },
-    {
-      "author": "Fyodor Dostoevsky",
-      "country": "Russia",
-      
-      "language": "Russian",
-      
-      
-      "title": "The Brothers Karamazov",
-      "year": 1880
-    }
-  
-  ]
+        }
 
-//   $('#search').on('keyup',function()
-//   {
-//     var value=$(this).val()
-//     console.log("value:",value)
-//     var data=searchTable(value,tableData)
-//     console.log(tableData)
+        if (display_row == true) {
+            row.style.display = "table-row"
 
-//   })
+        } else {
+            row.style.display = "none"
 
-//     buildTable(tableData)
-//   console.log(tableData)
-//   function searchTable(value,data)
-//   {
-//     var filteredData=[]
-//     for( var i=0;i<data.length;i++)
-//     {
-//       value=value.toLowerCase()
-//       var name=data[i].author.toLowerCase()
-//       var title=data[i].title.toLowerCase()
-//       console.log(data)
-
-//       if(name.includes(value) || title.includes(value))
-//       {
-//       filteredData.push(data[i])
-//     }
-//   }
-// }
-var state = {
-  'querySet': tableData,
-
-  'page': 1,
-  'rows': 10,
-  'window': 5,
-}
-
-buildTable()
-
-function pagination(querySet, page, rows) {
-
-  var trimStart = (page - 1) * rows
-  var trimEnd = trimStart + rows
-
-  var trimmedData = querySet.slice(trimStart, trimEnd)
-
-  var pages = Math.round(querySet.length / rows);
-
-  return {
-      'querySet': trimmedData,
-      'pages': pages,
-  }
-}
-
-function pageButtons(pages) {
-  var wrapper = document.getElementById('pagination-wrapper')
-
-  wrapper.innerHTML = ``
-console.log('Pages:', pages)
-
-  var maxLeft = (state.page - Math.floor(state.window / 2))
-  var maxRight = (state.page + Math.floor(state.window / 2))
-
-  if (maxLeft < 1) {
-      maxLeft = 1
-      maxRight = state.window
-  }
-
-  if (maxRight > pages) {
-      maxLeft = pages - (state.window - 1)
-      
-      if (maxLeft < 1){
-        maxLeft = 1
-      }
-      maxRight = pages
-  }
-  
-  
-
-  for (var page = maxLeft; page <= maxRight; page++) {
-    wrapper.innerHTML += `<button value=${page} class="page btn btn-sm btn-info">${page}</button>`
-  }
-
-  if (state.page != 1) {
-      wrapper.innerHTML = `<button value=${1} class="page btn btn-sm btn-info">&#171; First</button>` + wrapper.innerHTML
-  }
-
-  if (state.page != pages) {
-      wrapper.innerHTML += `<button value=${pages} class="page btn btn-sm btn-info">Last &#187;</button>`
-  }
-
-  $('.page').on('click', function() {
-      $('#table-body').empty()
-
-      state.page = Number($(this).val())
-
-      buildTable()
-  })
+        }
+    })
 
 }
-
-
-function buildTable() {
-  var table = $('#table-body')
-
-  var data = pagination(state.querySet, state.page, state.rows)
-  var myList = data.querySet
-
-  for (var i = 1 in myList) {
-      //Keep in mind we are using "Template Litterals to create rows"
-      var row = `<tr>
-                <td>${myList[i].title}</td>
-                <td>${myList[i].author}</td>
-                <td>${myList[i].year}</td>
-                <td>${myList[i].language}</td>
-                `
-      table.append(row)
-  }
-
-  pageButtons(data.pages)
-}
-console.log(tableData)
-
