@@ -1,138 +1,144 @@
-function tableSearch() {
-    let input, filter, table, tr, td,td1,txtValue;
 
-    //Intialising Variables
-    input = document.getElementById("myInput");
-    filter = input.value.toLowerCase();
-    table = document.getElementById("book-table");
-    tr = table.getElementsByTagName("tr");
+(async function runOnlyOnce() {
+  addEventListeners();
+  await loadAllBooksFromServer();
+  addBooksToTable();
+})();
 
-    for (let i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toLowerCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-        td1 = tr[i].getElementsByTagName("td")[0];
-        if (td1) {
-            txtValue = td1.textContent || td1.innerText;
-            if (txtValue.toLowerCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-}
-}
+const getBookMarkup = (book) =>
+  `<tr>
+        <td>${book.title}</td>
+        <td>${book.author}</td>
+        <td>${book.language}</td>
+        <td>${book.year}</td>
+    </tr>
+`;
 
+const BOOKS_PER_PAGE = 10;
+let books = [];
+let filteredBooks = [];
+let currentPage = 0;
+const prevButton = document.querySelector(".prev-button");
+const radioChoices = document.getElementsByName("attribute");
+const nextButton = document.querySelector(".next-button");
+const searchInput = document.querySelector(".search-query-input");
+const resultNumber = document.querySelector(".result-number");
 
-
-
-function getUniqueValuesFromColumn() {
-
-    var unique_col_values_dict = {}
-
-    allFilters = document.querySelectorAll(".table-filter")
-    allFilters.forEach((filter_i) => {
-        col_index = filter_i.parentElement.getAttribute("col-index");
-        // alert(col_index)
-        const rows = document.querySelectorAll("#book-table > tbody > tr")
-
-        rows.forEach((row) => {
-            cell_value = row.querySelector("td:nth-child("+col_index+")").innerHTML;
-            // if the col index is already present in the dict
-            if (col_index in unique_col_values_dict) {
-
-                // if the cell value is already present in the array
-                if (unique_col_values_dict[col_index].includes(cell_value)) {
-                    // alert(cell_value + " is already present in the array : " + unique_col_values_dict[col_index])
-
-                } else {
-                    unique_col_values_dict[col_index].push(cell_value)
-                    // alert("Array after adding the cell value : " + unique_col_values_dict[col_index])
-
-                }
-
-            } else {
-                unique_col_values_dict[col_index] = new Array(cell_value)
-            }
-        });
-
-        
-    });
-
-
-    updateSelectOptions(unique_col_values_dict)
-
+const updateTableFooter = () => {
+  if (currentPage === 0) {
+    prevButton.disabled = true;
+    nextButton.disabled = false;
+  } else if (currentPage >= Math.floor((filteredBooks.length) / BOOKS_PER_PAGE) ) {
+    nextButton.disabled = true;
+    prevButton.disabled = false;
+  } else {
+    prevButton.disabled = false;
+    nextButton.disabled = false;
+  }
 };
 
-// Add <option> tags to the desired columns based on the unique values
+function addBooksToTable() {
+  const totalBooks = filteredBooks.length;
+  const tbodyDiv = document.querySelector("tbody");
+  let output = "";
+  for (
+    let i = 0;
+    i < BOOKS_PER_PAGE && currentPage * BOOKS_PER_PAGE + i < totalBooks;
+    ++i
+  ) {
+    const book = filteredBooks[currentPage * BOOKS_PER_PAGE + i];
 
-function updateSelectOptions(unique_col_values_dict) {
-    allFilters = document.querySelectorAll(".table-filter")
+    output += getBookMarkup(book);
+  }
 
-    allFilters.forEach((filter_i) => {
-        col_index = filter_i.parentElement.getAttribute('col-index')
+  tbodyDiv.innerHTML = output;
+  resultNumber.textContent = filteredBooks.length;
 
-        unique_col_values_dict[col_index].forEach((i) => {
-            filter_i.innerHTML = filter_i.innerHTML + `\n<option value="${i}">${i}</option>`
-        });
+  updateTableFooter();
+}
 
-    });
-};
+async function loadAllBooksFromServer() {
 
+  const response = await fetch("./books.json");
+  books = await response.json();
+  filteredBooks = [...books];
+}
 
-// Create filter_rows() function
+function addEventListeners() {
+  prevButton.addEventListener("click", () => {
+    currentPage -= 1;
+    addBooksToTable();
+  });
 
-// filter_value_dict {2 : Value selected, 4:value, 5: value}
+  nextButton.addEventListener("click", () => {
+    currentPage += 1;
+    addBooksToTable();
+  });
 
-function filter_rows() {
-    allFilters = document.querySelectorAll(".table-filter")
-    var filter_value_dict = {}
+  searchInput.addEventListener("input", onSearchQuery);
+}
 
-    allFilters.forEach((filter_i) => {
-        col_index = filter_i.parentElement.getAttribute('col-index')
+function sortByTitle(asc) {
+  function compare(a, b) {
+    if (a.title < b.title === asc) {
+      return -1;
+    }
+    if (a.title > b.title === asc) {
+      return 1;
+    }
+    return 0;
+  }
 
-        value = filter_i.value
-        if (value != "all") {
-            filter_value_dict[col_index] = value;
-        }
-    });
+  filteredBooks.sort(compare);
+  addBooksToTable();
+}
+function sortByAuthor(asc) {
+  function compare(a, b) {
+    if (a.author < b.author === asc) {
+      return -1;
+    }
+    if (a.author > b.author === asc) {
+      return 1;
+    }
+    return 0;
+  }
 
-    var col_cell_value_dict = {};
+  filteredBooks.sort(compare);
+  addBooksToTable();
+}
+function sortBySubject(asc) {
+  function compare(a, b) {
+    if (a.subject < b.subject === asc) {
+      return -1;
+    }
+    if (a.subject > b.subject === asc) {
+      return 1;
+    }
+    return 0;
+  }
 
-    const rows = document.querySelectorAll("#book-table tbody tr");
-    rows.forEach((row) => {
-        var display_row = true;
+  filteredBooks.sort(compare);
+  addBooksToTable();
+}
 
-        allFilters.forEach((filter_i) => {
-            col_index = filter_i.parentElement.getAttribute('col-index')
-            col_cell_value_dict[col_index] = row.querySelector("td:nth-child(" + col_index+ ")").innerHTML
-        })
+function onSearchQuery(e) {
+  let attributeSelected = "";
 
-        for (var col_i in filter_value_dict) {
-            filter_value = filter_value_dict[col_i]
-            row_cell_value = col_cell_value_dict[col_i]
-            
-            if (row_cell_value.indexOf(filter_value) == -1 && filter_value != "all") {
-                display_row = false;
-                break;
-            }
+  var filter = document.getElementById("filter-by");
+  var filter_by_val = filter.value;
+  var filter_by_text = filter.options[filter.selectedIndex].text;
+  console.log(filter_by_text);
+  attributeSelected = filter_by_text.toLowerCase();
 
+  const query = e.target.value;
 
-        }
+  filteredBooks = filteredBooks.filter((book) =>
+    book[attributeSelected].toLowerCase().includes(query.toLowerCase())
+  );
 
-        if (display_row == true) {
-            row.style.display = "table-row"
+  if (query === "") {
+    filteredBooks = [...books];
+  }
 
-        } else {
-            row.style.display = "none"
-
-        }
-    })
-
+  addBooksToTable();
 }
