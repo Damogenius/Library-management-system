@@ -1,0 +1,490 @@
+[
+  {
+      "title": "Things Fall Apart",
+    "author": "Chinua Achebe",
+    "country": "Nigeria",
+    "language": "English",
+    
+    "year": 1958
+  },
+  {
+    "author": "Hans Christian Andersen",
+    "country": "Denmark",
+    "language": "Danish",
+    "title": "Fairy tales",
+    "year": 1836
+  },
+  {
+    "author": "Dante Alighieri",
+    "country": "Italy",
+    
+    "language": "Italian",
+    
+    
+    "title": "The Divine Comedy",
+    "year": 1958
+  },
+  
+
+  {
+    "author": "Jane Austen",
+    "country": "United Kingdom",
+    
+    "language": "English",
+    
+    
+    "title": "Pride and Prejudice",
+    "year": 1813
+  },
+  {
+    "author": "Honora9 de Balzac",
+    "country": "France",
+    
+    "language": "French",
+    
+    
+    "title": "Le Pa8re Goriot",
+    "year": 1835
+  },
+  {
+    "author": "Samuel Beckett",
+    "country": "Republic of Ireland",
+    
+    "language": "French, English",
+    
+    
+    "title": "Molloy, Malone Dies, The Unnamable, the trilogy",
+    "year": 1952
+  },
+  {
+    "author": "Giovanni Boccaccio",
+    "country": "Italy",
+    
+    "language": "Italian",
+    
+    
+    "title": "The Decameron",
+    "year": 1351
+  },
+  {
+    "author": "Jorge Luis Borges",
+    "country": "Argentina",
+    
+    "language": "Spanish",
+    
+    
+    "title": "Ficciones",
+    "year": 1965
+  },
+  {
+    "author": "Emily Brontab",
+    "country": "United Kingdom",
+    
+    "language": "English",
+    
+    
+    "title": "Wuthering Heights",
+    "year": 1847
+  },
+  {
+    "author": "Albert Camus",
+    "country": "Algeria, French Empire",
+    
+    "language": "French",
+    
+    
+    "title": "The Stranger",
+    "year": 1942
+  },
+  {
+    "author": "Paul Celan",
+    "country": "Romania, France",
+    
+    "language": "German",
+    
+    
+    "title": "Poems",
+    "year": 1952
+  },
+  {
+    "author": "Louis-Ferdinand Ca9line",
+    "country": "France",
+    
+    "language": "French",
+    
+    
+    "title": "Journey to the End of the Night",
+    "year": 1932
+  },
+  {
+    "author": "Miguel de Cervantes",
+    "country": "Spain",
+    
+    "language": "Spanish",
+    
+    
+    "title": "Don Quijote De La Mancha",
+    "year": 1610
+  },
+  {
+    "author": "Geoffrey Chaucer",
+    "country": "England",
+    
+    "language": "English",
+    
+    
+    "title": "The Canterbury Tales",
+    "year": 1450
+  },
+  {
+    "author": "Anton Chekhov",
+    "country": "Russia",
+    
+    "language": "Russian",
+    
+    
+    "title": "Stories",
+    "year": 1886
+  },
+  {
+    "author": "Joseph Conrad",
+    "country": "United Kingdom",
+    
+    "language": "English",
+    
+    
+    "title": "Nostromo",
+    "year": 1904
+  },
+  {
+    "author": "Charles Dickens",
+    "country": "United Kingdom",
+    
+    "language": "English",
+    
+    
+    "title": "Great Expectations",
+    "year": 1861
+  },
+  {
+    "author": "Denis Diderot",
+    "country": "France",
+    
+    "language": "French",
+    
+    
+    "title": "Jacques the Fatalist",
+    "year": 1796
+  },
+  {
+    "author": "Alfred D\u00f6blin",
+    "country": "Germany",
+    
+    "language": "German",
+    
+    
+    "title": "Berlin Alexanderplatz",
+    "year": 1929
+  },
+  {
+    "author": "Fyodor Dostoevsky",
+    "country": "Russia",
+    
+    "language": "Russian",
+    
+    
+    "title": "Crime and Punishment",
+    "year": 1866
+  },
+  {
+    "author": "Fyodor Dostoevsky",
+    "country": "Russia",
+    
+    "language": "Russian",
+    
+    
+    "title": "The Idiot",
+    "year": 1869
+  },
+  {
+    "author": "Fyodor Dostoevsky",
+    "country": "Russia",
+    
+    "language": "Russian",
+    
+    
+    "title": "The Possessed",
+    "year": 1872
+  },
+  {
+    "author": "Fyodor Dostoevsky",
+    "country": "Russia",
+    
+    "language": "Russian",
+    
+    
+    "title": "The Brothers Karamazov",
+    "year": 1880
+  },
+  {
+    "author": "George Eliot",
+    "country": "United Kingdom",
+    "imageLink": "images/middlemarch.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Middlemarch\n",
+    "pages": 800,
+    "title": "Middlemarch",
+    "year": 1871
+  },
+  {
+    "author": "Ralph Ellison",
+    "country": "United States",
+    "imageLink": "images/invisible-man.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Invisible_Man\n",
+    "pages": 581,
+    "title": "Invisible Man",
+    "year": 1952
+  },
+  {
+    "author": "Euripides",
+    "country": "Greece",
+    "imageLink": "images/medea.jpg",
+    "language": "Greek",
+    "link": "https://en.wikipedia.org/wiki/Medea_(play)\n",
+    "pages": 104,
+    "title": "Medea",
+    "year": -431
+  },
+  {
+    "author": "William Faulkner",
+    "country": "United States",
+    "imageLink": "images/absalom-absalom.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Absalom,_Absalom!\n",
+    "pages": 313,
+    "title": "Absalom, Absalom!",
+    "year": 1936
+  },
+  {
+    "author": "William Faulkner",
+    "country": "United States",
+    "imageLink": "images/the-sound-and-the-fury.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/The_Sound_and_the_Fury\n",
+    "pages": 326,
+    "title": "The Sound and the Fury",
+    "year": 1929
+  },
+  {
+    "author": "Gustave Flaubert",
+    "country": "France",
+    "imageLink": "images/madame-bovary.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/Madame_Bovary\n",
+    "pages": 528,
+    "title": "Madame Bovary",
+    "year": 1857
+  },
+  {
+    "author": "Gustave Flaubert",
+    "country": "France",
+    "imageLink": "images/l-education-sentimentale.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/Sentimental_Education\n",
+    "pages": 606,
+    "title": "Sentimental Education",
+    "year": 1869
+  },
+  {
+    "author": "Federico Garcia Lorca",
+    "country": "Spain",
+    "imageLink": "images/gypsy-ballads.jpg",
+    "language": "Spanish",
+    "link": "https://en.wikipedia.org/wiki/Gypsy_Ballads\n",
+    "pages": 218,
+    "title": "Gypsy Ballads",
+    "year": 1928
+  },
+  {
+    "author": "Gabriel Garcada Ma1rquez",
+    "country": "Colombia",
+    "imageLink": "images/one-hundred-years-of-solitude.jpg",
+    "language": "Spanish",
+    "link": "https://en.wikipedia.org/wiki/One_Hundred_Years_of_Solitude\n",
+    "pages": 417,
+    "title": "One Hundred Years of Solitude",
+    "year": 1967
+  },
+  {
+    "author": "Gabriel Garcada Ma1rquez",
+    "country": "Colombia",
+    "imageLink": "images/love-in-the-time-of-cholera.jpg",
+    "language": "Spanish",
+    "link": "https://en.wikipedia.org/wiki/Love_in_the_Time_of_Cholera\n",
+    "pages": 368,
+    "title": "Love in the Time of Cholera",
+    "year": 1985
+  },
+  {
+    "author": "Johann Wolfgang von Goethe",
+    "country": "Saxe-Weimar",
+    "imageLink": "images/faust.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/Goethe%27s_Faust\n",
+    "pages": 158,
+    "title": "Faust",
+    "year": 1832
+  },
+  {
+    "author": "Nikolai Gogol",
+    "country": "Russia",
+    "imageLink": "images/dead-souls.jpg",
+    "language": "Russian",
+    "link": "https://en.wikipedia.org/wiki/Dead_Souls\n",
+    "pages": 432,
+    "title": "Dead Souls",
+    "year": 1842
+  },
+  {
+    "author": "G\u00fcnter Grass",
+    "country": "Germany",
+    "imageLink": "images/the-tin-drum.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/The_Tin_Drum\n",
+    "pages": 600,
+    "title": "The Tin Drum",
+    "year": 1959
+  },
+  {
+    "author": "Joa3o Guimara3es Rosa",
+    "country": "Brazil",
+    "imageLink": "images/the-devil-to-pay-in-the-backlands.jpg",
+    "language": "Portuguese",
+    "link": "https://en.wikipedia.org/wiki/The_Devil_to_Pay_in_the_Backlands\n",
+    "pages": 494,
+    "title": "The Devil to Pay in the Backlands",
+    "year": 1956
+  },
+  {
+    "author": "Knut Hamsun",
+    "country": "Norway",
+    "imageLink": "images/hunger.jpg",
+    "language": "Norwegian",
+    "link": "https://en.wikipedia.org/wiki/Hunger_(Hamsun_novel)\n",
+    "pages": 176,
+    "title": "Hunger",
+    "year": 1890
+  },
+  {
+    "author": "Ernest Hemingway",
+    "country": "United States",
+    "imageLink": "images/the-old-man-and-the-sea.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/The_Old_Man_and_the_Sea\n",
+    "pages": 128,
+    "title": "The Old Man and the Sea",
+    "year": 1952
+  },
+  {
+    "author": "Homer",
+    "country": "Greece",
+    "imageLink": "images/the-iliad-of-homer.jpg",
+    "language": "Greek",
+    "link": "https://en.wikipedia.org/wiki/Iliad\n",
+    "pages": 608,
+    "title": "Iliad",
+    "year": -735
+  },
+  {
+    "author": "Homer",
+    "country": "Greece",
+    "imageLink": "images/the-odyssey-of-homer.jpg",
+    "language": "Greek",
+    "link": "https://en.wikipedia.org/wiki/Odyssey\n",
+    "pages": 374,
+    "title": "Odyssey",
+    "year": -800
+  },
+  {
+    "author": "Henrik Ibsen",
+    "country": "Norway",
+    "imageLink": "images/a-Dolls-house.jpg",
+    "language": "Norwegian",
+    "link": "https://en.wikipedia.org/wiki/A_Doll%27s_House\n",
+    "pages": 68,
+    "title": "A Doll's House",
+    "year": 1879
+  },
+  {
+    "author": "James Joyce",
+    "country": "Irish Free State",
+    "imageLink": "images/ulysses.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Ulysses_(novel)\n",
+    "pages": 228,
+    "title": "Ulysses",
+    "year": 1922
+  },
+  {
+    "author": "Franz Kafka",
+    "country": "Czechoslovakia",
+    "imageLink": "images/stories-of-franz-kafka.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/Franz_Kafka_bibliography#Short_stories\n",
+    "pages": 488,
+    "title": "Stories",
+    "year": 1924
+  },
+  {
+    "author": "Franz Kafka",
+    "country": "Czechoslovakia",
+    "imageLink": "images/the-trial.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/The_Trial\n",
+    "pages": 160,
+    "title": "The Trial",
+    "year": 1925
+  },
+  {
+    "author": "Franz Kafka",
+    "country": "Czechoslovakia",
+    "imageLink": "images/the-castle.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/The_Castle_(novel)\n",
+    "pages": 352,
+    "title": "The Castle",
+    "year": 1926
+  },
+  {
+    "author": "K\u0101lid\u0101sa",
+    "country": "India",
+    "imageLink": "images/the-recognition-of-shakuntala.jpg",
+    "language": "Sanskrit",
+    "link": "https://en.wikipedia.org/wiki/Abhij%C3%B1%C4%81na%C5%9B%C4%81kuntalam\n",
+    "pages": 147,
+    "title": "The recognition of Shakuntala",
+    "year": 150
+  },
+  {
+    "author": "Yasunari Kawabata",
+    "country": "Japan",
+    "imageLink": "images/the-sound-of-the-mountain.jpg",
+    "language": "Japanese",
+    "link": "https://en.wikipedia.org/wiki/The_Sound_of_the_Mountain\n",
+    "pages": 288,
+    "title": "The Sound of the Mountain",
+    "year": 1954
+  },
+  {
+    "author": "Nikos Kazantzakis",
+    "country": "Greece",
+    "imageLink": "images/zorba-the-greek.jpg",
+    "language": "Greek",
+    "link": "https://en.wikipedia.org/wiki/Zorba_the_Greek\n",
+    "pages": 368,
+    "title": "Zorba the Greek",
+    "year": 1946
+  }
+
+]
